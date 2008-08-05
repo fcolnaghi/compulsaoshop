@@ -1,3 +1,6 @@
+<?
+session_start();
+?>
 <html>
 <head>
 <title>CompulsaoShop</title>

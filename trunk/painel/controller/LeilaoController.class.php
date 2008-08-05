@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("../controller/Controller.class.php");
 
 class LeilaoController extends Controller {
@@ -29,23 +30,22 @@ class LeilaoController extends Controller {
 		}
 	}
 	
-	public function consultar ($valores) {
+	public function consultar ($id) {
 		try {
-			$object = $this->arrayToObject("Leilao", $valores);
+			$object = $this->arrayToObject("Leilao");
+			$object->setid($id);
 			
-			parent::consultar($object);
+			return parent::consultar($object);
 		} catch (MyException $m) {
 			throw $m;
 		}
 	}
 	
-	public function listar ($valores) {
+	public function listar () {
 		try {
-			$object = $this->arrayToObject("Leilao", $valores);
+			$object = $this->arrayToObject("Leilao");
 
 			return parent::listar($object);
-	
-			//$this->toNextPage($object->getNextPage("listar"));
 		} catch (MyException $m) {
 			throw $m;
 		}
@@ -61,9 +61,9 @@ class LeilaoController extends Controller {
 		}
 	}
 	
-	public function contar ($valores) {
+	public function contar () {
 		try {
-			$object = $this->arrayToObject("Leilao", $valores);
+			$object = $this->arrayToObject("Leilao");
 			
 			return parent::contar($object);
 		} catch (MyException $m) {

@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("../controller/Controller.class.php");
 
 class CategoriaController extends Controller {
@@ -53,9 +54,10 @@ class CategoriaController extends Controller {
 		}
 	}
 	
-	public function consultar ($valores) {
+	public function consultar ($id) {
 		try {
-			$object = $this->arrayToObject("Categoria", $valores);
+			$object = $this->arrayToObject("Categoria");
+			$object->setid($id);
 			
 			return parent::consultar($object);
 		} catch (MyException $m) {
@@ -63,13 +65,11 @@ class CategoriaController extends Controller {
 		}
 	}
 	
-	public function listar ($valores) {
+	public function listar () {
 		try {
-			$object = $this->arrayToObject("Categoria", $valores);
+			$object = $this->arrayToObject("Categoria");
 
 			return parent::listar($object);
-	
-			//$this->toNextPage($object->getNextPage("listar"));
 		} catch (MyException $m) {
 			throw $m;
 		}
@@ -85,9 +85,9 @@ class CategoriaController extends Controller {
 		}
 	}
 	
-	public function contar ($valores) {
+	public function contar () {
 		try {
-			$object = $this->arrayToObject("Categoria", $valores);
+			$object = $this->arrayToObject("Categoria");
 			
 			return parent::contar($object);
 		} catch (MyException $m) {
@@ -106,7 +106,7 @@ class CategoriaController extends Controller {
 			throw $m;
 		}
 	}
-	
+		
 	public function geraMenu ($id_categoria_pai) {
 		$sql = "select * from categoria where id_loja = 1 and id_categoria_pai = ". $id_categoria_pai;
 		$response = $this->executarSQL($sql, "Categoria");

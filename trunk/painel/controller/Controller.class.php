@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("../controller/UsuarioController.class.php");
 require_once ("../utils/XML.class.php");
 require_once ("../utils/DB.class.php");
@@ -15,11 +16,8 @@ class Controller {
 	}
 	
 	public function execute ($action, $valores) {
-		echo "execute";
+
 		try {
-			//$u = new UsuarioController();
-			//$u->verificaSessao();
-		
 			switch ($action) {
 				case 'salvar':
 					return $this->salvar($valores);
@@ -41,7 +39,10 @@ class Controller {
 	}
 
 	public function salvar ($object) {
+		
 		try {
+			UsuarioController::verificaSessao();
+
 			$db = new DB();
 	
 			$_o = $db->getInstance();
@@ -65,6 +66,8 @@ class Controller {
 	
 	public function excluir ($object) {
 		try {
+			UsuarioController::verificaSessao();
+			
 			$db = new DB();
 	
 			$_o = $db->getInstance();
@@ -83,15 +86,17 @@ class Controller {
 	
 	public function consultar ($object) {
 		try {
+			UsuarioController::verificaSessao();
+			
 			$db = new DB();
 	
 			$_o = $db->getInstance();
 	
 	       	$sql = $db->getSqlQueryById($object);
-	
+
 	       	$_o->query($sql);
 			
-			return $_o->getresult();
+			return $this->arrayToObject($object->getClassName(), $_o->getresult());
 			
 		} catch (MyException $m) {
 			throw $m;
@@ -103,6 +108,8 @@ class Controller {
 		$arrayObjetos = null;
 	
 		try {
+			UsuarioController::verificaSessao();
+			
 			$db = new DB();
 	
 			$_o = $db->getInstance();
@@ -132,6 +139,8 @@ class Controller {
 		$arrayObjetos = null;
 	
 		try {
+			UsuarioController::verificaSessao();
+			
 			$db = new DB();
 	
 			$_o = $db->getInstance();
@@ -157,8 +166,36 @@ class Controller {
 		return $arrayObjetos;
 	}
 	
+	public function login ($object) {
+	
+		$arrayObjetos = null;
+	
+		try {
+			$db = new DB();
+	
+			$_o = $db->getInstance();
+	
+			$sql = $db->getSqlQuery($object, false);
+
+			$_o->query($sql);
+			
+			return $this->arrayToObject($object->getClassName(), $_o->getresult());
+			
+		} catch (MyException $m) {
+			throw $m;
+		}
+			
+		if (count($arrayObjetos)==0) {
+			throw new MyException(1001);
+		}
+
+		return $arrayObjetos;
+	}
+	
 	public function contar ($object) {
 		try {
+			UsuarioController::verificaSessao();
+			
 			$db = new DB();
 	
 			$_o = $db->getInstance();
@@ -177,6 +214,8 @@ class Controller {
 		$arrayObjetos = null;
 	
 		try {
+			UsuarioController::verificaSessao();
+			
 			$db = new DB();
 	
 			$_o = $db->getInstance();
@@ -208,20 +247,18 @@ class Controller {
 	}
 	
 	public function toNextPage ($page) {
-		//header("Location: ". $page);
-		echo "Depois disso, ir para a página ". $page;
+		header("Location: ". $page);
+		//echo "Depois disso, ir para a página ". $page;
 	}
 	
 	//--------------------- Funções do framework ---------------------//
-    public function arrayToObject ($className, $arrayValues) {
+    public function arrayToObject ($className, $arrayValues = null) {
 		$object = new $className;
-		
-		if ($arrayValues != NULL)
-		{
-	        foreach($arrayValues as $index => $value)
-	        {
+
+		if ($arrayValues != null) {
+		    foreach($arrayValues as $index => $value) {
 				$object->__call("set".$index,$value);
-	        }
+		    }
 		}
 		return $object;
     }

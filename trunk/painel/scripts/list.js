@@ -7,15 +7,6 @@ $(function () {
 		function(){$(this).addClass('linha_hover');},
 		function(){$(this).removeClass('linha_hover');}
 	);
-	
-	/*$('table.list tr').click(function(){
-		var _oc = $("td:first", $(this)).attr("class"); // Recuperar a classe da primeira coluna
-		if (_oc!="table_title" && _oc!="table_subtitle" ) { // Se não for título, aplica cursor e estilos diferentes, assim como clique para edição
-			var _o = $("td:first > :checkbox", $(this));
-			//alert('editar o item '+ _o.val() );
-			location.href = "forms_edit.php?item="+ _o.val() ;
-		}
-    });*/
     
     $("table.list tr td").click(function(){
     	var _oc = $(this).attr("class");
@@ -23,7 +14,8 @@ $(function () {
     	if (_oc!="td_item" && _oc!="table_title" && _oc!="table_subtitle") {
     		var _o = $("td:first > :checkbox", $(this).parent());
     		//alert('editar o item '+ _o.val() );
-    		location.href = "forms_edit.php?item="+ _o.val() ;
+    		//location.href = "forms_edit.php?item="+ _o.val() ;
+    		editar (_o.val());
     	} else {
     		// Atualizar qtd de checks clicados
     		var _qtd = $("input[@type='checkbox']:checked").length;

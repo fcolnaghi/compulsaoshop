@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("DBO.class.php");
 require_once ("XML.class.php");
 require_once ("../utils/MyException.class.php");
@@ -151,8 +152,13 @@ class DB extends DBO {
     * @return String    O resultado da execução do método
     * @access public
     */
-	public function getSqlDelete($object) {
-		return "delete from ".$object->getTableName()." where id_loja = ".$object->getid_loja()." and ".$object->getIdName()." = ".$object->getid();
+	public function getSqlDelete($object, $loja = true) {
+		
+		//return $sql = "delete from ".$object->getTableName()." where id_loja = ".$object->getid_loja()." and ".$object->getIdName()." = ".$object->getid();
+		if ($loja) {
+			return $sql = "delete from ".$object->getTableName()." where id_loja = ".$_SESSION["id_loja"]." and ".$object->getIdName()." = ".$object->getid();
+		}
+		return $sql = "delete from ".$object->getTableName()." where ".$object->getIdName()." = ".$object->getid();
     }
     
     /**
@@ -173,8 +179,13 @@ class DB extends DBO {
     * @return String    O resultado da execução do método
     * @access public
     */
-    public function getSqlQueryAll($object) {
-		return "select ".$this->getFields($object)." from ".$object->getTableName() ." where id_loja = ".$object->getid_loja();
+    public function getSqlQueryAll($object, $loja = true) {
+		
+		//return "select ".$this->getFields($object)." from ".$object->getTableName() ." where id_loja = ".$object->getid_loja();
+		if ($loja) {
+			return "select ".$this->getFields($object)." from ".$object->getTableName() ." where id_loja = ".$_SESSION["id_loja"];
+		}
+		return "select ".$this->getFields($object)." from ".$object->getTableName();
     }
     
    /**
@@ -184,8 +195,13 @@ class DB extends DBO {
     * @return String    O resultado da execução do método
     * @access public
     */
-    public function getSqlQueryById($object) {
-		return "select ".$this->getFields($object)." from ".$object->getTableName()." where id_loja = ".$object->getid_loja()." and ".$object->getIdName()." = ".$object->getid();
+    public function getSqlQueryById($object, $loja = true) {
+
+		//return "select ".$this->getFields($object)." from ".$object->getTableName()." where id_loja = ".$object->getid_loja()." and ".$object->getIdName()." = ".$object->getid();
+		if ($loja) {
+			return "select ".$this->getFields($object)." from ".$object->getTableName()." where id_loja = ".$_SESSION["id_loja"]." and ".$object->getIdName()." = ".$object->getid();
+		}
+		return "select ".$this->getFields($object)." from ".$object->getTableName()." where ".$object->getIdName()." = ".$object->getid();
     }
     
     /**

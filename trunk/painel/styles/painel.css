@@ -92,22 +92,6 @@ td.table_campo {
 	border-bottom: 1px solid #dddddd;
 }
 
-input {
-	border: 1px solid #8d8d8d;
-}
-select {
-	border: 1px solid #8d8d8d;
-}
-textarea {
-	border: 1px solid #8d8d8d;
-}
-
-.submit {
-	background-color: #f5720b;
-	border: 1px solid #ff6600;
-	color: #ffffff;
-}
-
 .marcacao {
 	background-color: #f4f4f4;
 	margin: 0px;
@@ -172,3 +156,20 @@ div.system_warning_message {
 	width: 80%;
 	float: left;
 }
+
+/*
+input {
+	border: 1px solid #8d8d8d;
+}
+select {
+	border: 1px solid #8d8d8d;
+}
+textarea {
+	border: 1px solid #8d8d8d;
+}
+
+.submit {
+	background-color: #f5720b;
+	border: 1px solid #ff6600;
+	color: #ffffff;
+}*/

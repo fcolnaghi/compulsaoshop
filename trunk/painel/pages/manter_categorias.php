@@ -1,6 +1,9 @@
 <?
+session_start();
 require_once ("../controller/CategoriaController.class.php");
 require_once ("../classes/Categoria.class.php");
+
+$_o = new CategoriaController();
 ?>
 
 <html>
@@ -103,10 +106,6 @@ $(document).ready(function(){
 		<div id="divlist">
 		<?
 			try {
-				$_o = new CategoriaController();
-				
-				/*$valores['id_loja'] = 1;
-				$qtdRegistros = $_o->contar($valores);*/
 		?>
 			<!------------------------ Início do conteúdo da página ------------------------>
 			<div id="ladoesquerdo">

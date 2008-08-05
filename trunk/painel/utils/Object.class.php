@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("XML.class.php");
 require_once ("DB.class.php");
 require_once ("MyException.class.php");

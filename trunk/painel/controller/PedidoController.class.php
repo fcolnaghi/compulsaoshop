@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("../controller/Controller.class.php");
 
 class PedidoController extends Controller {
@@ -29,9 +30,10 @@ class PedidoController extends Controller {
 		}
 	}
 	
-	public function consultar ($valores) {
+	public function consultar ($id) {
 		try {
-			$object = $this->arrayToObject("Pedido", $valores);
+			$object = $this->arrayToObject("Pedido");
+			$object->setid($id);
 			
 			return parent::consultar($object);
 		} catch (MyException $m) {
@@ -39,13 +41,11 @@ class PedidoController extends Controller {
 		}
 	}
 	
-	public function listar ($valores) {
+	public function listar () {
 		try {
-			$object = $this->arrayToObject("Pedido", $valores);
+			$object = $this->arrayToObject("Pedido");
 
 			return parent::listar($object);
-	
-			//$this->toNextPage($object->getNextPage("listar"));
 		} catch (MyException $m) {
 			throw $m;
 		}
@@ -63,7 +63,7 @@ class PedidoController extends Controller {
 	
 	public function contar ($valores) {
 		try {
-			$object = $this->arrayToObject("Pedido", $valores);
+			$object = $this->arrayToObject("Pedido");
 			
 			return parent::contar($object);
 		} catch (MyException $m) {

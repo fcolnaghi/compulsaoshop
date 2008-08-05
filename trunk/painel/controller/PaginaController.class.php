@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("../controller/Controller.class.php");
 
 class PaginaController extends Controller {
@@ -29,23 +30,22 @@ class PaginaController extends Controller {
 		}
 	}
 	
-	public function consultar ($valores) {
+	public function consultar ($id) {
 		try {
-			$object = $this->arrayToObject("Pagina", $valores);
+			$object = $this->arrayToObject("Pagina");
+			$object->setid($id);
 			
-			parent::consultar($object);
+			return parent::consultar($object);
 		} catch (MyException $m) {
 			throw $m;
 		}
 	}
 	
-	public function listar ($valores) {
+	public function listar () {
 		try {
-			$object = $this->arrayToObject("Pagina", $valores);
+			$object = $this->arrayToObject("Pagina");
 
 			return parent::listar($object);
-	
-			//$this->toNextPage($object->getNextPage("listar"));
 		} catch (MyException $m) {
 			throw $m;
 		}
@@ -61,9 +61,9 @@ class PaginaController extends Controller {
 		}
 	}
 	
-	public function contar ($valores) {
+	public function contar () {
 		try {
-			$object = $this->arrayToObject("Pagina", $valores);
+			$object = $this->arrayToObject("Pagina");
 			
 			return parent::contar($object);
 		} catch (MyException $m) {
