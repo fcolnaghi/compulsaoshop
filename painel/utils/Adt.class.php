@@ -1,4 +1,5 @@
 <?
+session_start();
 header("Content-Type: text/html; charset=ISO-8859-1",true);
 
 require_once ("../utils/Object.class.php");

@@ -1,9 +1,9 @@
 <?
+session_start();
 require_once("Xml.class.php");
 
 /**
  * @package Util
- * @license logicti@logicti.com.br
  */
 class MyException extends Exception
 {

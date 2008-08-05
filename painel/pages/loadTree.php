@@ -1,4 +1,6 @@
-<? header("Content-Type: text/html; charset=ISO-8859-1",true); ?>
+<?
+session_start();
+header("Content-Type: text/html; charset=ISO-8859-1",true); ?>
 
 <li id='35'><span class="text">Nó em ajax  1</span></li>
 <li id='36'><span class="text">Nó em ajax  2</span></li>

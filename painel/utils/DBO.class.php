@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("../utils/MyException.class.php");
 
 class DBO {

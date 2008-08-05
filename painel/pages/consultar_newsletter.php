@@ -1,6 +1,9 @@
 <?
+session_start();
 require_once ("../controller/NewsletterController.class.php");
 require_once ("../classes/Newsletter.class.php");
+
+$_o = new NewsletterController();
 ?>
 
 <html>
@@ -29,10 +32,7 @@ require_once ("../classes/Newsletter.class.php");
 		<div id="divlist">
 		<?
 			try {
-				$_o = new NewsletterController();
-		
-				$valores['id_loja'] = 1;
-				$qtdRegistros = $_o->contar($valores);
+				$qtdRegistros = $_o->contar();
 		?>
 			<!------------------------ Início do conteúdo da página ------------------------>
 			<p class="paginacao">Página <img src="../images/pager_arrow_left_off.gif">&nbsp;<input type='text' id='page' value='1' size='1' disabled="disabled">&nbsp;<img src="../images/pager_arrow_right.gif"> de 1 páginas | Visualizar <select name='paginas' id='paginas'><option value='10'>10</option><option value='20' selected>20</option><option value='50'>50</option><option value='100'>100</option></select> por página | Total <?=$qtdRegistros[0]?> registros encontrados</p>
@@ -57,10 +57,7 @@ require_once ("../classes/Newsletter.class.php");
 						<td class='table_title' width="15%" align='center'>ID Loja</td>
 					</tr>
 					<?
-						$valores = array();
-						$valores['id_loja'] = 1;
-						
-						$response = $_o->listar($valores);
+						$response = $_o->listar();
 						
 						foreach($response as $obj) {
 							echo "<tr>";

@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("../utils/Object.class.php");
 
 class Banner extends Object {

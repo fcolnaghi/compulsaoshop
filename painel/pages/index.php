@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once("../controller/UsuarioController.class.php");
 ?>
 <html>
@@ -38,7 +39,6 @@ $(function(){
 				
 				<div class="botoes">
 					<input type="submit" name="confirmar" id="confirmar" value="Confirmar">
-					<input type="submit" name="cancelar" id="cancelar" value="Cancelar">
 				</div>
 			</div>
 	<!-------------------------- Fim do conteúdo da página ------------------------->

@@ -1,5 +1,8 @@
 <?
+session_start();
 require_once ("../controller/Controller.class.php");
+require_once ("../controller/UsuarioController.class.php");
+require_once ("../classes/Produto.class.php");
 
 class ProdutoController extends Controller {
 
@@ -14,6 +17,9 @@ class ProdutoController extends Controller {
 			$object = $this->arrayToObject("Produto", $valores);
 			
 			parent::salvar($object);
+			
+			$this->toNextPage($object->getNextPage("salvar"));
+			
 		} catch (MyException $m) {
 			throw $m;
 		}
@@ -29,23 +35,22 @@ class ProdutoController extends Controller {
 		}
 	}
 	
-	public function consultar ($valores) {
+	public function consultar ($id) {
 		try {
-			$object = $this->arrayToObject("Produto", $valores);
+			$object = $this->arrayToObject("Produto");
+			$object->setid($id);
 			
-			parent::consultar($object);
+			return parent::consultar($object);
 		} catch (MyException $m) {
 			throw $m;
 		}
 	}
 	
-	public function listar ($valores) {
+	public function listar () {
 		try {
-			$object = $this->arrayToObject("Produto", $valores);
+			$object = $this->arrayToObject("Produto");
 
 			return parent::listar($object);
-	
-			//$this->toNextPage($object->getNextPage("listar"));
 		} catch (MyException $m) {
 			throw $m;
 		}
@@ -61,9 +66,9 @@ class ProdutoController extends Controller {
 		}
 	}
 	
-	public function contar ($valores) {
+	public function contar () {
 		try {
-			$object = $this->arrayToObject("Produto", $valores);
+			$object = $this->arrayToObject("Produto");
 			
 			return parent::contar($object);
 		} catch (MyException $m) {

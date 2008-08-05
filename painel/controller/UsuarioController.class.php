@@ -1,4 +1,5 @@
 <?
+session_start();
 require_once ("../controller/Controller.class.php");
 require_once ("../classes/Usuario.class.php");
 
@@ -16,6 +17,9 @@ class UsuarioController extends Controller {
 				case 'login':
 					$this->login($valores);
 					break;
+				case 'logoff':
+					$this->logoff();
+					break;
 				default:
 			}
 		} catch (MyException $m) {
@@ -24,20 +28,25 @@ class UsuarioController extends Controller {
 	}
 	
 	public function login ($valores) {
+		
+		//echo "dentro de login <br>";
+		
 		try {
 			// Cria um objeto usuário a partir dos campos email e senha
 			$object = $this->arrayToObject("Usuario", $valores);
 
 			// Recupera o usuário do banco de dados
-			$_o = parent::pesquisar($object);
-			$usuario = $_o[0];
+			$usuario = parent::login($object);
+
+			// Inicializando a sessão
+			session_start();
 
 			// Registrando usuário na sessão
-			$_SESSION["usuario_id_loja"]	= $usuario->getid_loja();
-			$_SESSION["usuario_id_usuario"]	= $usuario->getid_usuario();
-			$_SESSION["usuario_nome"]		= $usuario->getnome();
-			$_SESSION["usuario_email"]		= $usuario->getemail();
-			$_SESSION["usuario_id_perfil"]	= $usuario->getid_perfil();
+			$_SESSION["id_loja"]	= $usuario->getid_loja();
+			$_SESSION["id_usuario"]	= $usuario->getid_usuario();
+			$_SESSION["nome"]		= $usuario->getnome();
+			$_SESSION["email"]		= $usuario->getemail();
+			$_SESSION["id_perfil"]	= $usuario->getid_perfil();
 			
 			// Redirecionando para a página principal
 			header("Location: ../pages/consultar_estatisticas.php");
@@ -51,16 +60,24 @@ class UsuarioController extends Controller {
 	}
 
 	public function logoff () {
-		unset($_SESSION["usuario_id_loja"]);
-		unset($_SESSION["usuario_id_usuario"]);
-		unset($_SESSION["usuario_nome"]);
-		unset($_SESSION["usuario_email"]);
-		unset($_SESSION["usuario_id_perfil"]);
+		
+		session_start();
+		
+		unset($_SESSION["id_loja"]);
+		unset($_SESSION["id_usuario"]);
+		unset($_SESSION["nome"]);
+		unset($_SESSION["email"]);
+		unset($_SESSION["id_perfil"]);
+		
+		header("Location: ../pages/index.php");
 	}
 	
-	public function verificaSessao () {
-		if (!isset($_SESSION["usuario_id_usuario"])) {
-			throw new MyException("140");
+	public static function verificaSessao () {
+		
+		session_start();
+		
+		if (!isset($_SESSION["id_usuario"])) {
+			throw new MyException("200");
 		}
 	}
 }

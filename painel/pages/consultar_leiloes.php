@@ -1,6 +1,9 @@
 <?
+session_start();
 require_once ("../controller/LeilaoController.class.php");
 require_once ("../classes/Leilao.class.php");
+
+$_o = new LeilaoController();
 ?>
 
 <html>
@@ -29,10 +32,6 @@ require_once ("../classes/Leilao.class.php");
 		<div id="divlist">
 		<?
 			try {
-				$_o = new LeilaoController();
-			
-		
-				$valores['id_loja'] = 1;
 				$qtdRegistros = $_o->contar($valores);
 		?>
 			<!------------------------ Início do conteúdo da página ------------------------>
@@ -58,10 +57,7 @@ require_once ("../classes/Leilao.class.php");
 						<td class='table_title' width="15%" align='center'>ID Loja</td>
 					</tr>
 					<?
-						$valores = array();
-						$valores['id_loja'] = 1;
-						
-						$response = $_o->listar($valores);
+						$response = $_o->listar();
 						
 						foreach($response as $obj) {
 							echo "<tr>";

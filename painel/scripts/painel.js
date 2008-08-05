@@ -8,6 +8,6 @@ $(function(){
 	});
 	
 	
-	$(':submit').addClass('submit');
-	$(":checkbox").css('border','0px');
+	/*$(':submit').addClass('submit');
+	$(":checkbox").css('border','0px');*/
 });

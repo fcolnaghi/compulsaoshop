@@ -1,8 +1,8 @@
 <?
+session_start();
 
 /**
  * @package Util
- * @license logicti@logicti.com.br
  */
 class Xml
 {
