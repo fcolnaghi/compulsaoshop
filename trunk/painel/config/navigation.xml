@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<navigation>
+
+	<!-- Categoria -->
+	<navigation_rule>
+		<from_view_id>Categoria.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>manter_categorias.php?msg=1000</to_view_id>
+		</navigation_case>
+		<navigation_case>
+			<from_outcome>excluir</from_outcome>
+			<to_view_id>manter_categorias.php?msg=1000</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+
+	<!-- Produto -->
+	<navigation_rule>
+		<from_view_id>manter_produtos.php</from_view_id>
+		<navigation_case>
+			<from_outcome>listar</from_outcome>
+			<to_view_id>mostrar_produtos.php</to_view_id>
+		</navigation_case>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>salvar_produtos.php</to_view_id>
+		</navigation_case>
+		<navigation_case>
+			<from_outcome>excluir</from_outcome>
+			<to_view_id>excluir_produtos.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+
+	
+</navigation>

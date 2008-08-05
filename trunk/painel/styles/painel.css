@@ -1,0 +1,174 @@
+* {
+	font-family: arial;
+	font-size: 12px;
+}
+
+body {
+	margin: 0px;
+}
+
+div.logo {
+	padding: 10px;
+	/*background-color: #D9DFA7;*/
+}
+
+a {
+	color: #ff6600;
+	text-decoration: none;
+}
+a:hover {
+	color: #6f8992;
+}
+
+h1 {
+	font-size: 18px;
+	color: #ff6600;
+	margin: 0px;
+	padding: 5px 0px 0px 0px;
+}
+
+hr {
+	height: 4px;
+	background-color: #dddddd;
+	border: 0px;
+}
+
+#div_conteudo {
+	width: 100%;
+}
+
+#divlist {
+	width: 100%;
+}
+
+.par {
+	background-color: #f4f4f4;
+}
+
+.linha_hover {
+	/*background-color: #ABB5BC;*/
+	/*background-color: #e7efef;*/
+	background-color: #fcf5dd;
+	cursor:pointer;
+}
+
+.td_item {
+	cursor:default !important;
+}
+
+table td {
+	padding-left: 5px;
+}
+
+table.list td {
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #dddddd;
+}
+
+table.form td {
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	/*border-bottom: 1px solid #dddddd;*/
+}
+
+td.table_title {
+	/*background: url(gradient-alt.png) repeat-x; */
+	background-color: #b6b6b6;
+	border: 1px solid #A5AFB8;
+	cursor: default;
+}
+
+td.table_subtitle {
+	background-color: #e7efef;
+	cursor: default;
+	border-bottom: 1px solid #dddddd;
+}
+
+td.table_campo {
+	background-color: #f4f4f4;
+	border-bottom: 1px solid #dddddd;
+}
+
+input {
+	border: 1px solid #8d8d8d;
+}
+select {
+	border: 1px solid #8d8d8d;
+}
+textarea {
+	border: 1px solid #8d8d8d;
+}
+
+.submit {
+	background-color: #f5720b;
+	border: 1px solid #ff6600;
+	color: #ffffff;
+}
+
+.marcacao {
+	background-color: #f4f4f4;
+	margin: 0px;
+	padding: 2px;
+	margin-top: 2px;
+}
+
+.list, .marcacao {
+	width: 100%;
+}
+
+div.botoes {
+	padding-top: 5px;
+	text-align: center;
+}
+
+div.system_error_message {
+	border: 1px solid #f16048;
+	/*background-color: #faebe7;*/
+	background:#faebe7 url('../images/error_msg_icon.gif') no-repeat 10px 10px;
+	margin-bottom: 10px; padding-left:30px; padding-right:10px; padding-top:10px; padding-bottom:10px
+}
+div.system_alert_message {
+	border: 1px solid #ffd967;
+	/*background-color: #fffbf0;*/
+	background:#fffbf0 url('../images/note_msg_icon.gif') no-repeat 10px 10px;
+	margin-bottom: 10px; padding-left:30px; padding-right:10px; padding-top:10px; padding-bottom:10px
+}
+div.system_confirm_message {
+	border: 1px solid #95A486;
+	/*background-color: #EFF5EA;*/
+	background:#eff5ea url('../images/success_msg_icon.gif') no-repeat 10px 10px;
+	margin-bottom: 10px; padding-left:30px; padding-right:10px; padding-top:10px; padding-bottom:10px
+}
+div.system_warning_message {
+    border:1px solid #666e73;
+    background:#e6e6e6 url('../images/warning_msg_icon.gif') no-repeat 10px 10px;
+    margin-bottom: 10px; padding-left:30px; padding-right:10px; padding-top:10px; padding-bottom:10px
+}
+
+.borda {
+	padding:5px;
+	border: 1px solid #ccc;
+	_width: 100% !important;
+}
+
+.paginacao {
+	margin: 0px 0px 5px 0px;
+}
+
+#divconteudo {
+	/*position: absolute;*/
+	padding:5px;
+}
+
+#ladoesquerdo {
+	width: 20%;
+	float: left;
+	overflow:auto;
+}
+#ladodireito {
+	width: 80%;
+	float: left;
+}

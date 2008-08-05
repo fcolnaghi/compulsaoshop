@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<adt>
+    <item code="1">Aberto</item>
+	<item code="2">Pago</item>
+    <item code="3">Em atraso</item>
+	<item code="4">Cancelado</item>
+</adt>
