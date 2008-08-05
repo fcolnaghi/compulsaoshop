@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<adt>
+    <item code="1">Administrador</item>
+	<item code="2">Editor</item>
+	<item code="3">Publicador</item>
+	<item code="4">Visualizador</item>
+</adt>

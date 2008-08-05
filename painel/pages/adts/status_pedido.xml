@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<adt>
+    <item code="1">Em andamento</item>
+	<item code="2">Cancelado</item>
+</adt>

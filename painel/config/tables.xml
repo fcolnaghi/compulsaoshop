@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<tables>
+	<object name="Usuario">usuario</object>
+	<object name="Banner">banner</object>
+	<object name="Categoria">categoria</object>
+	<object name="Cliente">cliente</object>
+	<object name="Leilao">leilao</object>
+	<object name="Loja">loja</object>
+	<object name="Mensagem">mensagem</object>
+	<object name="Pedido">pedido</object>
+	<object name="Produto">produto</object>
+	<object name="Promocao">promocao</object>
+	<object name="Tema">tema</object>
+	<object name="Texto">texto</object>
+	<object name="Pagina">pagina</object>
+	<object name="Newsletter">newsletter</object>
+</tables>
