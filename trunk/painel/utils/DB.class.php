@@ -1,7 +1,7 @@
 <?
 session_start();
-require_once ("DBO.class.php");
-require_once ("XML.class.php");
+require_once ("../utils/DBO.class.php");
+require_once ("../utils/XML.class.php");
 require_once ("../utils/MyException.class.php");
 
 class DB extends DBO {

@@ -63,9 +63,9 @@
 	<exception code="320">Não existe nada para imprimir!</exception>
     <exception code="330">Já existe um Tipo de Conta com este Nome!</exception>
     <exception code="340">A atualização do preço de venda não será efetuada pois existem Grupos de Produto com mais de 100% de Impostos associados!</exception>
+	<exception code="1000">Sucesso!</exception>
 	<exception code="1062">Já existe um registro com estes dados!</exception>
     <exception code="1217">O registro não pode ser excluído pois existem dados associados!</exception>
-    <exception code="1000">Sucesso!</exception>
     <exception code="1001">Nenhum resultado encontrado!</exception>
     <exception code="1002">Ocorreu um erro ao excluir o registro!</exception>
     <exception code="1003">Ocorreu um erro ao excluir os registros!</exception>

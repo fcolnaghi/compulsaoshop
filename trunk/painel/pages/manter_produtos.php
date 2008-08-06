@@ -3,11 +3,14 @@ session_start();
 
 require_once ("../controller/ProdutoController.class.php");
 require_once ("../classes/Produto.class.php");
+require_once ("../utils/MyException.class.php");
 
 $_o = new ProdutoController();
+$obj = new Produto();
 if (isset($_REQUEST["item"])) {
 	$obj = $_o->consultar($_REQUEST["item"]);
 }
+
 ?>
 <html>
 <head>
@@ -15,26 +18,73 @@ if (isset($_REQUEST["item"])) {
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
 <script src="../scripts/jquery.js"				type="text/javascript"></script>
+<script src="../scripts/jquery.tabs.js"			type="text/javascript"></script>
+<script src="../scripts/jquery.form.js"			type="text/javascript"></script>
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
 </head>
 
 <script language='javascript'>
-$(function () {
-	$('#salvar').click(function(){
-		$(this).attr("disabled","disabled").val("Aguarde...");
-		$("div.system_confirm_message").show();
-		return false;
-	});
-});
-
-//../controller/ProdutoController.class.php?action=salvar
+// prepare the form when the DOM is ready 
+$(document).ready(function() { 
+    var options = { 
+        //target:        '#mensagem',   // target element(s) to be updated with server response 
+        beforeSubmit:  showRequest,  // pre-submit callback 
+        success:       showResponse  // post-submit callback 
+ 
+        // other available options: 
+        //url:       url         // override for form's 'action' attribute 
+        //type:      type        // 'get' or 'post', override for form's 'method' attribute 
+        //dataType:  null        // 'xml', 'script', or 'json' (expected server response type) 
+        //clearForm: true        // clear all form fields after successful submit 
+        //resetForm: true        // reset the form after successful submit 
+ 
+        // $.ajax options can be used here too, for example: 
+        //timeout:   3000 
+    }; 
+ 
+    // bind to the form's submit event 
+    $('#form').submit(function() { 
+        // inside event callbacks 'this' is the DOM element so we first 
+        // wrap it in a jQuery object and then invoke ajaxSubmit 
+        $(this).ajaxSubmit(options); 
+ 
+        // !!! Important !!! 
+        // always return false to prevent standard browser submit and page navigation 
+        return false; 
+    }); 
+}); 
+ 
+// pre-submit callback 
+function showRequest(formData, jqForm, options) { 
+    // formData is an array; here we use $.param to convert it to a string to display it 
+    // but the form plugin does this for you automatically when it submits the data 
+//    var queryString = $.param(formData); 
+ 
+    // jqForm is a jQuery object encapsulating the form element.  To access the 
+    // DOM element for the form do this: 
+    // var formElement = jqForm[0]; 
+ 
+//   alert('About to submit: \n\n' + queryString); 
+ 
+ 
+	$("#salvar").attr("disabled","disabled").val("Aguarde...");
+ 
+    // here we could return false to prevent the form from being submitted; 
+    // returning anything other than false will allow the form submit to continue 
+    return true; 
+} 
+ 
+// post-submit callback 
+function showResponse(responseText, statusText)  { 
+	$("#divlist").prepend(responseText); 
+} 
 </script>
 
 <body>
 
-<form name="form" id="form" method="post" action="#">
+<form name="form" id="form" method="post" action="../controller/ProdutoController.class.php?action=salvar">
 	<? include_once "menu_topo.inc.php"; ?>
 	
 	<div id="divconteudo">
@@ -42,21 +92,16 @@ $(function () {
 		<hr>
 
 		<ul>
-			<li>Implementar submit por ajax</li>
 			<li>Ao voltar, mostrar mensagem (erro,sucesso,etc), com opção para 'inserir novo'</li>
 			<li>Validar online os campos (validate)</li>
 			<li>Ao clicar no botão submit, trocar o label para 'aguarde' e depois para 'pronto'</li>
 			<li>Ao alterar qualquer campo, habilitar novamente o botão salvar</li>
 			<li>Simplificar o layout (vide code.google.com|google.com/a/leggos.com.br|gmail.com)</li>
-			<li>Tirar os campos id_loja</li>
-			<li>Desabilitar o campo id_produto</li>
+			<li>Tirar os campos id_loja / Desabilitar o campo id_produto</li>
 			<li>Substituir o ID pela descrição (criar um método genérico)</li>
 			<li>Implementar uma pop-up(ou similar) com a lista de categorias (sem drop)</li>
-			<li>Implementar upload de imagens</li>
-			<li>Implementar envio de emails</li>
+			<li>Implementar upload de imagens/ Implementar envio de emails</li>
 		</ul>
-		
-		<div class="system_confirm_message" style="display:none">Colocar uma mensagem de sucesso aqui</div>
 		
 		<div id="divlist">
 			<div class="borda">
@@ -128,7 +173,7 @@ $(function () {
 				</table>
 				
 				<div class="botoes">
-					<input type="button" name="salvar" id="salvar" value="Salvar">
+					<input type="submit" name="salvar" id="salvar" value="Salvar">
 				</div>
 	
 			</div> <!-- end div borda -->

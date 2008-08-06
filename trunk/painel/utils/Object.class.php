@@ -1,8 +1,8 @@
 <?
 session_start();
-require_once ("XML.class.php");
-require_once ("DB.class.php");
-require_once ("MyException.class.php");
+require_once ("../utils/XML.class.php");
+require_once ("../utils/DB.class.php");
+require_once ("../utils/MyException.class.php");
 
 class Object {
 

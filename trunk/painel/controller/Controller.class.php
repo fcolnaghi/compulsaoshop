@@ -1,5 +1,6 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=ISO-8859-1",true);
 require_once ("../controller/UsuarioController.class.php");
 require_once ("../utils/XML.class.php");
 require_once ("../utils/DB.class.php");
@@ -61,7 +62,8 @@ class Controller {
 		if ($_o->getstatus() == 1) {
 			throw new MyException(1004);
 		}
-		
+
+		throw new MyException (1000); // Sucesso
 	}
 	
 	public function excluir ($object) {
