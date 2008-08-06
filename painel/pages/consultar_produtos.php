@@ -19,6 +19,16 @@ $_o = new ProdutoController();
 </head>
 
 <script language="javascript">
+$(function () {
+	$('#inserir').click(function(){
+		$(this).attr("disabled","disabled").val("Aguarde...");
+
+		location.href = "../pages/manter_produtos.php";
+		
+		return false;
+	});
+});
+
 function editar (item) {
 	location.href = "../pages/manter_produtos.php?item="+ item;
 }
@@ -35,6 +45,7 @@ function excluir() {
 	<div id="divconteudo">
 	
 		<h1>Produtos</h1>
+		<input type="button" name="inserir" id="inserir" value="Inserir novo" onClick="inserir()">
 	
 		<hr>
 	

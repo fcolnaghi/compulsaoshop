@@ -5,7 +5,7 @@ session_start();
 	<div class="logo">
 		<table width="100%" border="0" cellpadding="0" cellspacing="0">
 			<tr>
-				<td width="50%"><img src="../images/logo.gif"></td>
+				<td width="50%"><img src="../images/logo.png"></td>
 				<td align="right" valign="top"><?=$_SESSION["email"]?> | <a href="../controller/UsuarioController.class.php?action=logoff">Logoff</a></td>
 			</tr>
 		</table>

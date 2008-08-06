@@ -1,8 +1,10 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=ISO-8859-1",true);
 require_once ("../controller/Controller.class.php");
 require_once ("../controller/UsuarioController.class.php");
 require_once ("../classes/Produto.class.php");
+require_once ("../utils/MyException.class.php");
 
 class ProdutoController extends Controller {
 
@@ -17,11 +19,11 @@ class ProdutoController extends Controller {
 			$object = $this->arrayToObject("Produto", $valores);
 			
 			parent::salvar($object);
-			
-			$this->toNextPage($object->getNextPage("salvar"));
+
+			//$this->toNextPage($object->getNextPage("salvar"));
 			
 		} catch (MyException $m) {
-			throw $m;
+			echo $m->getMyMessage();
 		}
 	}
 	

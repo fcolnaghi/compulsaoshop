@@ -1,6 +1,6 @@
 <?
 session_start();
-require_once("Xml.class.php");
+require_once("../utils/Xml.class.php");
 
 /**
  * @package Util
@@ -44,14 +44,31 @@ class MyException extends Exception
 	        $arquivo = "../config/exceptions.xml";
 	    	if (file_exists($arquivo)) {
 	            $xml = new Xml($arquivo);
-	            return $xml->getValueByAttribute("exception","code",$this->getCode());
+	            $tmpMessage = $xml->getValueByAttribute("exception","code",$this->getCode());
+	            $tmpCode = substr($this->getCode(),0,1);
+	            
+	            switch ($tmpCode) {
+	            	case 1: // Success
+	            		$this->msg = "<div class='system_confirm_message'>".$tmpMessage."</div>";
+	            		break;
+	            	case 2: // Information
+	            		$this->msg = "<div class='system_alert_message'>".$tmpMessage."</div>";
+	            		break;
+	            	case 3: // Warning
+	            		$this->msg = "<div class='system_warning_message'>".$tmpMessage."</div>";
+	            		break;
+	            	case 4: // Error
+						$this->msg = "<div class='system_error_message'>".$tmpMessage."</div>";
+	            		break;
+	            	default:
+	            }
+	            
 	            $xml = NULL;
 	        } else {
-	            return "Arquivo de configuração $arquivo não foi encontrado!";
+	            $this->msg = "<div class='system_error_message'>Arquivo de configuração ".$arquivo." não foi encontrado</div>";
 	        }
-        } else {
-	        return $this->msg;
         }
+        return $this->msg;
 	}
 
 	public function setMyMessage($message) {
