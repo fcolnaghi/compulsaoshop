@@ -173,3 +173,25 @@ textarea {
 	border: 1px solid #ff6600;
 	color: #ffffff;
 }*/
+
+#loader {
+	position: absolute;
+	top: 5;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+#loader-content {
+	color: #ff0000;
+	font-weight: bold;
+}
+
+/** Utilizado pelo plugin jquery.validate.js **/
+label.error {  
+	color: #f16048;  
+	margin: 0px 6px;  
+}
+input.error {
+	border: 1px solid #f16048;
+	background-color: #faebe7;
+}

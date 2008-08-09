@@ -1,5 +1,6 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 require_once ("../controller/CategoriaController.class.php");
 require_once ("../classes/Categoria.class.php");
 
@@ -8,15 +9,17 @@ $_o = new CategoriaController();
 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>CompulsaoShop</title>
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
 <link href="../styles/tree.css"					rel="stylesheet">
 <script src="../scripts/jquery.js"				type="text/javascript"></script>
+<script src="../scripts/jquery.validate.js"		type="text/javascript"></script>
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
-<script src="../scripts/list.js"				type="text/javascript"></script>
+<script src="../scripts/painel.list.js"			type="text/javascript"></script>
 <script src="../scripts/jquery.simple.tree.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.contextmenu.js"	type="text/javascript"></script>
 </head>

@@ -1,11 +1,12 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 ?>
 <div id="topo">
 	<div class="logo">
 		<table width="100%" border="0" cellpadding="0" cellspacing="0">
 			<tr>
-				<td width="50%"><img src="../images/logo.png"></td>
+				<td width="50%"><img src="../images/logo.gif"></td>
 				<td align="right" valign="top"><?=$_SESSION["email"]?> | <a href="../controller/UsuarioController.class.php?action=logoff">Logoff</a></td>
 			</tr>
 		</table>

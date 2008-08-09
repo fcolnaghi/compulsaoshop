@@ -1,17 +1,60 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 require_once("../controller/UsuarioController.class.php");
 ?>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>CompulsaoShop</title>
+<script src="../scripts/jquery.js"			type="text/javascript"></script>
+<script src="../scripts/jquery.tabs.js"		type="text/javascript"></script>
+<link href="../styles/painel.css"			rel="stylesheet">
+<link rel="stylesheet" href="../styles/jquery.tabs.css" type="text/css">
+<!-- Additional IE/Win specific style sheet (Conditional Comments) -->
+<!--[if lte IE 7]>
+<link rel="stylesheet" href="../styles/jquery.tabs-ie.css" type="text/css">
+<![endif]-->
+<style type="text/css">
 
-<script src="../scripts/jquery.js"				type="text/javascript"></script>
-<link href="../styles/painel.css"				rel="stylesheet">
+    /* Not required for Tabs, just to make this demo look better... */
+
+    body {
+        font-size: 16px; /* @ EOMB */
+    }
+    * html body {
+        font-size: 100%; /* @ IE */
+    }
+    body * {
+        font-size: 87.5%;
+        font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+    }
+    body * * {
+        font-size: 100%;
+    }
+    h1 {
+        margin: 1em 0 1.5em;
+        font-size: 18px;
+    }
+    h2 {
+        margin: 2em 0 1.5em;
+        font-size: 16px;
+    }
+    p {
+        margin: 0;
+    }
+    pre, pre+p, p+p {
+        margin: 1em 0 0;
+    }
+    code {
+        font-family: "Courier New", Courier, monospace;
+    }
+</style>
+
 </head>
 <script language="javascript">
 $(function(){
-	$(':submit').addClass('submit');
+	$('#menu_abas').tabs({ remote: true });
 });
 </script>
 <body>
@@ -25,6 +68,14 @@ $(function(){
 	
 		<div id="divlist">
 	<!------------------------ Início do conteúdo da página ------------------------>
+<div id="menu_abas">
+    <ul>
+        <li><a href="ahah_1.html"><span>One</span></a></li>
+        <li><a href="ahah_2.html"><span>Two</span></a></li>
+        <li><a href="ahah_3.html"><span>Three</span></a></li>
+    </ul>
+</div>
+
 			<div class="borda">
 				<table width="100%" cellpadding="0" cellspacing="1" class="form">
 					<tr>

@@ -1,5 +1,7 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
+
 require_once("../utils/Xml.class.php");
 
 /**
@@ -49,16 +51,16 @@ class MyException extends Exception
 	            
 	            switch ($tmpCode) {
 	            	case 1: // Success
-	            		$this->msg = "<div class='system_confirm_message'>".$tmpMessage."</div>";
+	            		$this->msg = "<div id='exception' class='system_confirm_message'>".$tmpMessage."</div>";
 	            		break;
 	            	case 2: // Information
-	            		$this->msg = "<div class='system_alert_message'>".$tmpMessage."</div>";
+	            		$this->msg = "<div id='exception' class='system_alert_message'>".$tmpMessage."</div>";
 	            		break;
 	            	case 3: // Warning
-	            		$this->msg = "<div class='system_warning_message'>".$tmpMessage."</div>";
+	            		$this->msg = "<div id='exception' class='system_warning_message'>".$tmpMessage."</div>";
 	            		break;
 	            	case 4: // Error
-						$this->msg = "<div class='system_error_message'>".$tmpMessage."</div>";
+						$this->msg = "<div id='exception' class='system_error_message'>".$tmpMessage."</div>";
 	            		break;
 	            	default:
 	            }

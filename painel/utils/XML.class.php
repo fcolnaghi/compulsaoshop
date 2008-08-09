@@ -1,11 +1,11 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 
 /**
  * @package Util
  */
-class Xml
-{
+class Xml {
     /**
     *   Atributo que contém o objeto Xml a ser manipulado
     *

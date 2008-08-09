@@ -1,5 +1,6 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 require_once ("../controller/ProdutoController.class.php");
 require_once ("../classes/Produto.class.php");
 
@@ -8,6 +9,7 @@ $_o = new ProdutoController();
 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>CompulsaoShop</title>
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
@@ -15,7 +17,7 @@ $_o = new ProdutoController();
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
-<script src="../scripts/list.js"				type="text/javascript"></script>
+<script src="../scripts/painel.list.js"			type="text/javascript"></script>
 </head>
 
 <script language="javascript">
