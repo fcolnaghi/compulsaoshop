@@ -1,5 +1,6 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 
 require_once ("../controller/ProdutoController.class.php");
 require_once ("../classes/Produto.class.php");
@@ -15,71 +16,44 @@ if (isset($_REQUEST["item"])) {
 <html>
 <head>
 <title>CompulsaoShop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
-<script src="../scripts/jquery.js"				type="text/javascript"></script>
+<script src="../scripts/jquery.js"				charset="iso-8859-1" type="text/javascript"></script>
 <script src="../scripts/jquery.tabs.js"			type="text/javascript"></script>
-<script src="../scripts/jquery.form.js"			type="text/javascript"></script>
+<script src="../scripts/jquery.validate.js"		type="text/javascript"></script>
+<script src="../scripts/jquery.form.js"			charset="iso-8859-1" type="text/javascript"></script>
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
+<script src="../scripts/painel.forms.js"		charset="iso-8859-1" type="text/javascript"></script>
 </head>
 
-<script language='javascript'>
-// prepare the form when the DOM is ready 
-$(document).ready(function() { 
-    var options = { 
-        //target:        '#mensagem',   // target element(s) to be updated with server response 
-        beforeSubmit:  showRequest,  // pre-submit callback 
-        success:       showResponse  // post-submit callback 
- 
-        // other available options: 
-        //url:       url         // override for form's 'action' attribute 
-        //type:      type        // 'get' or 'post', override for form's 'method' attribute 
-        //dataType:  null        // 'xml', 'script', or 'json' (expected server response type) 
-        //clearForm: true        // clear all form fields after successful submit 
-        //resetForm: true        // reset the form after successful submit 
- 
-        // $.ajax options can be used here too, for example: 
-        //timeout:   3000 
-    }; 
- 
-    // bind to the form's submit event 
-    $('#form').submit(function() { 
-        // inside event callbacks 'this' is the DOM element so we first 
-        // wrap it in a jQuery object and then invoke ajaxSubmit 
-        $(this).ajaxSubmit(options); 
- 
-        // !!! Important !!! 
-        // always return false to prevent standard browser submit and page navigation 
-        return false; 
-    }); 
-}); 
- 
-// pre-submit callback 
-function showRequest(formData, jqForm, options) { 
-    // formData is an array; here we use $.param to convert it to a string to display it 
-    // but the form plugin does this for you automatically when it submits the data 
-//    var queryString = $.param(formData); 
- 
-    // jqForm is a jQuery object encapsulating the form element.  To access the 
-    // DOM element for the form do this: 
-    // var formElement = jqForm[0]; 
- 
-//   alert('About to submit: \n\n' + queryString); 
- 
- 
-	$("#salvar").attr("disabled","disabled").val("Aguarde...");
- 
-    // here we could return false to prevent the form from being submitted; 
-    // returning anything other than false will allow the form submit to continue 
-    return true; 
-} 
- 
-// post-submit callback 
-function showResponse(responseText, statusText)  { 
-	$("#divlist").prepend(responseText); 
-} 
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#form").validate ({
+		rules: {
+			id_categoria: "required",
+			nome: "required",
+			descricao: "required",
+			valor: "required",
+			peso: "required",
+			qtd_estoque: "required",
+			referencia: "required",
+			id_categoria_portal: "required"
+		},
+		messages: {
+			id_categoria: "Por favor, preencha",
+			nome: "Por favor, preencha",
+			descricao: "Por favor, preencha",
+			valor: "Por favor, preencha",
+			peso: "Por favor, preencha",
+			qtd_estoque: "Por favor, preencha",
+			referencia: "Por favor, preencha",
+			id_categoria_portal: "Por favor, preencha"
+		}
+	});
+});
 </script>
 
 <body>
@@ -90,51 +64,28 @@ function showResponse(responseText, statusText)  {
 	<div id="divconteudo">
 		<h1>Produtos</h1>
 		<hr>
-
-		<ul>
-			<li>Ao voltar, mostrar mensagem (erro,sucesso,etc), com opção para 'inserir novo'</li>
-			<li>Validar online os campos (validate)</li>
-			<li>Ao clicar no botão submit, trocar o label para 'aguarde' e depois para 'pronto'</li>
-			<li>Ao alterar qualquer campo, habilitar novamente o botão salvar</li>
-			<li>Simplificar o layout (vide code.google.com|google.com/a/leggos.com.br|gmail.com)</li>
-			<li>Tirar os campos id_loja / Desabilitar o campo id_produto</li>
-			<li>Substituir o ID pela descrição (criar um método genérico)</li>
-			<li>Implementar uma pop-up(ou similar) com a lista de categorias (sem drop)</li>
-			<li>Implementar upload de imagens/ Implementar envio de emails</li>
-		</ul>
 		
 		<div id="divlist">
 			<div class="borda">
 				<table width="100%" cellpadding="0" cellspacing="1" class="form">
-					<tr>
-						<td class="table_subtitle" colspan='2'><?=$obj->getnome()?></td>
-					</tr>
-					<tr>
-						<td width="20%"class="table_campo">id_loja</td>
-						<td width="80%"><input type="text" name="id_loja" value="<?=$obj->getid_loja()?>"></td>
+					<tr>	
+						<td width="20%" class="table_campo"><label for="id_categoria">id_categoria</label></td>
+						<td width="80%"><input type="text" name="id_categoria" value="<?=$obj->getid_categoria()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo">id_produto</td>
-						<td><input type="text" name="id_produto" value="<?=$obj->getid_produto()?>"></td>
-					</tr>
-					<tr>	
-						<td class="table_campo">id_categoria</td>
-						<td><input type="text" name="id_categoria" value="<?=$obj->getid_categoria()?>"></td>
-					</tr>
-					<tr>	
-						<td class="table_campo">nome</td>
+						<td class="table_campo"><label for="nome">nome</label></td>
 						<td><input type="text" name="nome" value="<?=$obj->getnome()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo">descricao</td>
+						<td class="table_campo"><label for="descricao">descricao</label></td>
 						<td><input type="text" name="descricao" value="<?=$obj->getdescricao()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo">valor</td>
+						<td class="table_campo"><label for="valor">valor</label></td>
 						<td><input type="text" name="valor" value="<?=$obj->getvalor()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo">peso</td>
+						<td class="table_campo"><label for="peso">peso</label></td>
 						<td><input type="text" name="peso" value="<?=$obj->getpeso()?>"></td>
 					</tr>
 					<tr>	
@@ -173,12 +124,16 @@ function showResponse(responseText, statusText)  {
 				</table>
 				
 				<div class="botoes">
-					<input type="submit" name="salvar" id="salvar" value="Salvar">
+					<input type="submit" name="salvar" id="salvar" value="Salvar" disabled="disabled">
+					<input type="button" name="cancelar" id="cancelar" value="Cancelar">
 				</div>
 	
-			</div> <!-- end div borda -->
-		</div> <!-- end div list -->
-	</div> <!-- end div conteudo -->
+			</div>
+		</div>
+	</div>
+
+<input type="hidden" name="id_produto" value="<?=$obj->getid_produto()?>">
+<input type="hidden" name="id_loja" value="<?=$_SESSION["id_loja"]?>">
 </form>
-</body>		
+</body>
 </html>

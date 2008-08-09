@@ -1,5 +1,6 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 require_once ("../controller/BannerController.class.php");
 require_once ("../classes/Banner.class.php");
 
@@ -8,6 +9,7 @@ $_o = new BannerController();
 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>CompulsaoShop</title>
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
@@ -15,8 +17,27 @@ $_o = new BannerController();
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
-<script src="../scripts/list.js"				type="text/javascript"></script>
+<script src="../scripts/painel.list.js"			type="text/javascript"></script>
 </head>
+
+<script language="javascript">
+$(function () {
+	$('#inserir').click(function(){
+		$(this).attr("disabled","disabled").val("Aguarde...");
+
+		location.href = "../pages/manter_banners.php";
+		
+		return false;
+	});
+});
+
+function editar (item) {
+	location.href = "../pages/manter_banners.php?item="+ item;
+}
+function excluir() {
+	alert("excluir o item "+ item);
+}
+</script>
 
 <body>
 
@@ -26,6 +47,7 @@ $_o = new BannerController();
 	<div id="divconteudo">
 	
 		<h1>Banners</h1>
+		<input type="button" name="inserir" id="inserir" value="Inserir novo" onClick="inserir()">
 	
 		<hr>
 	

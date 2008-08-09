@@ -1,6 +1,10 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 require_once ("../controller/Controller.class.php");
+require_once ("../controller/UsuarioController.class.php");
+require_once ("../classes/Categoria.class.php");
+require_once ("../utils/MyException.class.php");
 
 class CategoriaController extends Controller {
 
@@ -14,9 +18,9 @@ class CategoriaController extends Controller {
 		try {
 			$object = $this->arrayToObject("Categoria", $valores);
 			
-			return parent::salvar($object);
+			parent::salvar($object);
 		} catch (MyException $m) {
-			throw $m;
+			echo $m->getMyMessage();
 		}
 		
 		/*
@@ -39,7 +43,7 @@ class CategoriaController extends Controller {
 		$_o->query($sql);
 		
 		if ($_o->getstatus() == 1) {
-			throw new MyException(1004);
+			throw new MyException(4002);
 		}
 		 */
 	}
@@ -150,7 +154,7 @@ class CategoriaController extends Controller {
 		$_o->query($sql);
 
 		if ($_o->getstatus() == 1) {
-			throw new MyException(1002);
+			throw new MyException(4000);
 		}
 	}
 

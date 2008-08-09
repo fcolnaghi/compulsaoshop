@@ -1,6 +1,10 @@
 <?
 session_start();
+header("Content-Type: text/html; charset=iso-8859-1",true);
 require_once ("../controller/Controller.class.php");
+require_once ("../controller/UsuarioController.class.php");
+require_once ("../classes/Cliente.class.php");
+require_once ("../utils/MyException.class.php");
 
 class ClienteController extends Controller {
 
@@ -14,9 +18,9 @@ class ClienteController extends Controller {
 		try {
 			$object = $this->arrayToObject("Cliente", $valores);
 			
-			return parent::salvar($object);
+			parent::salvar($object);
 		} catch (MyException $m) {
-			throw $m;
+			echo $m->getMyMessage();
 		}
 	}
 	

@@ -1,6 +1,6 @@
 <?
 session_start();
-header("Content-Type: text/html; charset=ISO-8859-1",true);
+header("Content-Type: text/html; charset=iso-8859-1",true);
 require_once ("../controller/UsuarioController.class.php");
 require_once ("../utils/XML.class.php");
 require_once ("../utils/DB.class.php");
@@ -53,14 +53,14 @@ class Controller {
 			} else {
 				$sql = $db->getSqlUpdate($object);
 			}
-			
+//echo $sql;			
 			$_o->query($sql);
 		} catch (MyException $m) {
 			throw $m;
 		}
 		
 		if ($_o->getstatus() == 1) {
-			throw new MyException(1004);
+			throw new MyException(4002);
 		}
 
 		throw new MyException (1000); // Sucesso
@@ -82,7 +82,7 @@ class Controller {
 		}
 		
 		if ($_o->getstatus() == 1) {
-			throw new MyException(1002);
+			throw new MyException(4000);
 		}
 	}
 	
