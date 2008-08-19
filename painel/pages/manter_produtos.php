@@ -20,41 +20,11 @@ if (isset($_REQUEST["item"])) {
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
 <script src="../scripts/jquery.js"				charset="iso-8859-1" type="text/javascript"></script>
-<script src="../scripts/jquery.tabs.js"			type="text/javascript"></script>
-<script src="../scripts/jquery.validate.js"		type="text/javascript"></script>
-<script src="../scripts/jquery.form.js"			charset="iso-8859-1" type="text/javascript"></script>
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
 <script src="../scripts/painel.forms.js"		charset="iso-8859-1" type="text/javascript"></script>
 </head>
-
-<script type="text/javascript">
-$(document).ready(function() {
-	$("#form").validate ({
-		rules: {
-			id_categoria: "required",
-			nome: "required",
-			descricao: "required",
-			valor: "required",
-			peso: "required",
-			qtd_estoque: "required",
-			referencia: "required",
-			id_categoria_portal: "required"
-		},
-		messages: {
-			id_categoria: "Por favor, preencha",
-			nome: "Por favor, preencha",
-			descricao: "Por favor, preencha",
-			valor: "Por favor, preencha",
-			peso: "Por favor, preencha",
-			qtd_estoque: "Por favor, preencha",
-			referencia: "Por favor, preencha",
-			id_categoria_portal: "Por favor, preencha"
-		}
-	});
-});
-</script>
 
 <body>
 
@@ -69,23 +39,23 @@ $(document).ready(function() {
 			<div class="borda">
 				<table width="100%" cellpadding="0" cellspacing="1" class="form">
 					<tr>	
-						<td width="20%" class="table_campo"><label for="id_categoria">id_categoria</label></td>
+						<td width="20%" class="table_campo">id_categoria</td>
 						<td width="80%"><input type="text" name="id_categoria" value="<?=$obj->getid_categoria()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo"><label for="nome">nome</label></td>
+						<td class="table_campo">nome</td>
 						<td><input type="text" name="nome" value="<?=$obj->getnome()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo"><label for="descricao">descricao</label></td>
+						<td class="table_campo">descricao</td>
 						<td><input type="text" name="descricao" value="<?=$obj->getdescricao()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo"><label for="valor">valor</label></td>
+						<td class="table_campo">valor</td>
 						<td><input type="text" name="valor" value="<?=$obj->getvalor()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo"><label for="peso">peso</label></td>
+						<td class="table_campo">peso</td>
 						<td><input type="text" name="peso" value="<?=$obj->getpeso()?>"></td>
 					</tr>
 					<tr>	

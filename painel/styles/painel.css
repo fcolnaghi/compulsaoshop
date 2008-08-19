@@ -7,11 +7,6 @@ body {
 	margin: 0px;
 }
 
-div.logo {
-	padding: 10px;
-	/*background-color: #D9DFA7;*/
-}
-
 a {
 	color: #ff6600;
 	text-decoration: none;
@@ -194,4 +189,17 @@ label.error {
 input.error {
 	border: 1px solid #f16048;
 	background-color: #faebe7;
+}
+
+#logo {
+	padding: 5px;
+}
+
+.h1_logo {
+	font-style: italic;
+	color: #000000;
+}
+
+.h2_logo {
+	color: #000000;
 }

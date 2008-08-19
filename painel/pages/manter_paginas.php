@@ -20,9 +20,6 @@ if (isset($_REQUEST["item"])) {
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
 <script src="../scripts/jquery.js"				type="text/javascript"></script>
-<script src="../scripts/jquery.validate.js"		type="text/javascript"></script>
-<script src="../scripts/jquery.tabs.js"			type="text/javascript"></script>
-<script src="../scripts/jquery.form.js"			type="text/javascript"></script>
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
@@ -54,20 +51,6 @@ tinyMCE.init({
 		email : "<?=$_SESSION["email"]?>"
 	}
 });
-
-$(document).ready(function() {
-	$("#form").validate ({
-		rules: {
-			titulo_pagina: "required",
-			conteudo_pagina: "required"
-		},
-		messages: {
-			titulo_pagina: "Por favor, preencha",
-			conteudo_pagina: "Por favor, preencha"
-		}
-		// adicionar um método.. tinyMCE.get('conteudo_pagina').getContent()
-	});
-});
 </script>
 
 </head>
@@ -85,11 +68,11 @@ $(document).ready(function() {
 			<div class="borda">
 				<table width="100%" cellpadding="0" cellspacing="1" class="form">
 					<tr>	
-						<td width="20%" class="table_campo"><label for="id_categoria">titulo_pagina</label></td>
+						<td width="20%" class="table_campo">titulo_pagina</td>
 						<td width="80%"><input type="text" name="titulo_pagina" value="<?=$obj->gettitulo_pagina()?>"></td>
 					</tr>
 					<tr>	
-						<td class="table_campo"><label for="id_categoria">conteudo_pagina</label></td>
+						<td class="table_campo">conteudo_pagina</td>
 						<td><textarea id="conteudo_pagina" name="conteudo_pagina" rows="15" cols="80" style="width: 100%"><?=$obj->getconteudo_pagina()?></textarea></td>
 					</tr>
 				</table>

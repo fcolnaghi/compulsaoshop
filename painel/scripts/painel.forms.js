@@ -1,17 +1,18 @@
 $(document).ready(function() {
 
-    var options = { 
-		beforeSubmit:  showRequest, 
-        success:       showResponse 
-    };
+//    var options = { 
+//		beforeSubmit:  showRequest, 
+//      success:       showResponse 
+//    };
 
-	// Se passar da validação, cai aqui e submete o formulário (action padrão)
-	$.validator.setDefaults({
-		submitHandler: function() {
-			$("#form").ajaxSubmit(options); 
-			return false; 
-		}
-	});
+//	// Se passar da validação, cai aqui e submete o formulário (action padrão)
+//	$.validator.setDefaults({
+//		submitHandler: function() {
+//			//$("#form").ajaxSubmit(options);
+//	
+//			return false;
+//		}
+//	});
     
     $("input,textarea").keyup(function (){
     	$("#salvar").attr("disabled","").val("Salvar");
@@ -29,7 +30,7 @@ function showRequest(formData, jqForm, options) {
 //	alert('About to submit: \n\n' + queryString); 
 
 	// Prepara os dados do tinyMCE
-	tinyMCE.triggerSave();
+//	tinyMCE.triggerSave();
  
  	$("#salvar").attr("disabled","disabled").val("Aguarde...");
  

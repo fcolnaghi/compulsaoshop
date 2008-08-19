@@ -19,6 +19,8 @@ class CategoriaController extends Controller {
 			$object = $this->arrayToObject("Categoria", $valores);
 			
 			parent::salvar($object);
+			
+			$this->toNextPage($object->getNextPage("salvar"));
 		} catch (MyException $m) {
 			echo $m->getMyMessage();
 		}

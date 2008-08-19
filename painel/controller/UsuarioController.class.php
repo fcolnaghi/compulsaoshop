@@ -52,7 +52,7 @@ class UsuarioController extends Controller {
 			$_SESSION["id_perfil"]	= $usuario->getid_perfil();
 			
 			// Redirecionando para a página principal
-			header("Location: ../pages/consultar_estatisticas.php");
+			header("Location: ../pages/painel.php");
 			
 		} catch (MyException $m) {
 			if ($m->getcode() == 1001) { // Nenhum resultado encontrado

@@ -19,6 +19,8 @@ class PromocaoController extends Controller {
 			$object = $this->arrayToObject("Promocao", $valores);
 			
 			parent::salvar($object);
+			
+			$this->toNextPage($object->getNextPage("salvar"));
 		} catch (MyException $m) {
 			echo $m->getMyMessage();
 		}

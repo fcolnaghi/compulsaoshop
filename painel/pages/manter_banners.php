@@ -20,9 +20,6 @@ if (isset($_REQUEST["item"])) {
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
 <script src="../scripts/jquery.js"				type="text/javascript"></script>
-<script src="../scripts/jquery.validate.js"		type="text/javascript"></script>
-<script src="../scripts/jquery.tabs.js"			type="text/javascript"></script>
-<script src="../scripts/jquery.form.js"			type="text/javascript"></script>
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>

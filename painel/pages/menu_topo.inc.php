@@ -2,16 +2,21 @@
 session_start();
 header("Content-Type: text/html; charset=iso-8859-1",true);
 ?>
+
 <div id="topo">
-	<div class="logo">
+	<div id="logo">
 		<table width="100%" border="0" cellpadding="0" cellspacing="0">
 			<tr>
-				<td width="50%"><img src="../images/logo.gif"></td>
-				<td align="right" valign="top"><?=$_SESSION["email"]?> | <a href="../controller/UsuarioController.class.php?action=logoff">Logoff</a></td>
+				<td width="180" valign="top"><img src="../images/logo.png"></td>
+				<td width="250" valign="top">
+					<h1 class="h1_logo">Nome da loja do cliente</h1>
+					<h2 class="h2_logo">E-commerce system</h2>
+				</td>
+				<td align="right" valign="top"><?=$_SESSION["email"]?> | <a href="#">Configurações</a> | <a href="../controller/UsuarioController.class.php?action=logoff">Logoff</a></td>
 			</tr>
 		</table>
 	</div>
-	
+
 	<ul class="jd_menu">
 		<li>Painel
 			<ul>
@@ -56,7 +61,6 @@ header("Content-Type: text/html; charset=iso-8859-1",true);
 		<li>Configurações
 			<ul>
 				<li><a href="manter_usuarios.php">Usuários</a></li>
-				<li><a href="manter_loja.php">Loja</a></li>
 			</ul>
 		</li>
 		<li>Design
@@ -75,4 +79,5 @@ header("Content-Type: text/html; charset=iso-8859-1",true);
 			</ul>
 		</li>
 	</ul>
+
 </div>
