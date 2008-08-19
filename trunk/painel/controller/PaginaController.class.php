@@ -19,6 +19,8 @@ class PaginaController extends Controller {
 			$object = $this->arrayToObject("Pagina", $valores);
 			
 			parent::salvar($object);
+			
+			$this->toNextPage($object->getNextPage("salvar"));
 		} catch (MyException $m) {
 			echo $m->getMyMessage();
 		}

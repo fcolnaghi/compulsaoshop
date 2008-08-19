@@ -19,6 +19,8 @@ class TextoController extends Controller {
 			$object = $this->arrayToObject("Texto", $valores);
 			
 			parent::salvar($object);
+			
+			$this->toNextPage($object->getNextPage("salvar"));
 		} catch (MyException $m) {
 			echo $m->getMyMessage();
 		}

@@ -20,36 +20,10 @@ if (isset($_REQUEST["item"])) {
 <link href="../styles/painel.css"				rel="stylesheet">
 <link href="../styles/jdMenu.css"				rel="stylesheet">
 <script src="../scripts/jquery.js"				type="text/javascript"></script>
-<script src="../scripts/jquery.validate.js"		type="text/javascript"></script>
-<script src="../scripts/jquery.tabs.js"			type="text/javascript"></script>
-<script src="../scripts/jquery.form.js"			type="text/javascript"></script>
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
 <script src="../scripts/painel.forms.js"		type="text/javascript"></script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-	$("#form").validate ({
-		rules: {
-			nome: "required",
-			descricao: "required",
-			percentual_desconto: "required",
-			qtd_limite_produtos: "required",
-			dt_inicio: "required",
-			dt_fim: "required"
-		},
-		messages: {
-			nome: "Por favor, preencha",
-			descricao: "Por favor, preencha",
-			percentual_desconto: "Por favor, preencha",
-			qtd_limite_produtos: "Por favor, preencha",
-			dt_inicio: "Por favor, preencha",
-			dt_fim: "Por favor, preencha"
-		}
-	});
-});
-</script>
 
 </head>
 

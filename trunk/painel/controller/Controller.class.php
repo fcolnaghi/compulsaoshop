@@ -53,7 +53,7 @@ class Controller {
 			} else {
 				$sql = $db->getSqlUpdate($object);
 			}
-//echo $sql;			
+
 			$_o->query($sql);
 		} catch (MyException $m) {
 			throw $m;
@@ -62,8 +62,6 @@ class Controller {
 		if ($_o->getstatus() == 1) {
 			throw new MyException(4002);
 		}
-
-		throw new MyException (1000); // Sucesso
 	}
 	
 	public function excluir ($object) {

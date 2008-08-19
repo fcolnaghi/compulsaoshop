@@ -11,5 +11,120 @@
 		</navigation_case>
 	</navigation_rule>
 
+	<!-- Banner -->
+	<navigation_rule>
+		<from_view_id>BannerController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_banners.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
 	
+	<!-- Categoria -->
+	<navigation_rule>
+		<from_view_id>CategoriaController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_categorias.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Cliente -->
+	<navigation_rule>
+		<from_view_id>ClienteController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_clientes.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Leilão -->
+	<navigation_rule>
+		<from_view_id>LeilaoController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_leiloes.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Loja -->
+	<navigation_rule>
+		<from_view_id>LojaController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_lojas.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Mensagem -->
+	<navigation_rule>
+		<from_view_id>MensagemController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_mensagens.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Newsletter -->
+	<navigation_rule>
+		<from_view_id>NewsletterController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_newsletters.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Pagina -->
+	<navigation_rule>
+		<from_view_id>PaginaController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_paginas.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Pedido -->
+	<navigation_rule>
+		<from_view_id>PedidoController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_pedidos.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Promocao -->
+	<navigation_rule>
+		<from_view_id>PromocaoController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_promocoes.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Tema -->
+	<navigation_rule>
+		<from_view_id>TemaController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_temas.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Texto -->
+	<navigation_rule>
+		<from_view_id>TextoController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_textos.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
+	
+	<!-- Usuario -->
+	<navigation_rule>
+		<from_view_id>UsuarioController.class.php</from_view_id>
+		<navigation_case>
+			<from_outcome>salvar</from_outcome>
+			<to_view_id>../pages/consultar_usuarios.php</to_view_id>
+		</navigation_case>
+	</navigation_rule>
 </navigation>

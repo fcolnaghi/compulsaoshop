@@ -15,7 +15,6 @@ $_o = new CategoriaController();
 <link href="../styles/jdMenu.css"				rel="stylesheet">
 <link href="../styles/tree.css"					rel="stylesheet">
 <script src="../scripts/jquery.js"				type="text/javascript"></script>
-<script src="../scripts/jquery.validate.js"		type="text/javascript"></script>
 <script src="../scripts/jquery.dimensions.js"	type="text/javascript"></script>
 <script src="../scripts/jquery.jdMenu.js"		type="text/javascript"></script>
 <script src="../scripts/painel.js"				type="text/javascript"></script>
